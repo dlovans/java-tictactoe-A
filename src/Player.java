@@ -47,4 +47,12 @@ public class Player {
     public int getVictories() {
         return this.victories;
     }
+
+    /**
+     * Returns player name.
+     * @return - Player name.
+     */
+    public String getName() {
+        return this.name;
+    }
 }
