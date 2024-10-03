@@ -13,11 +13,23 @@ public class Player {
     int victories;
 
     /**
+     * Whether Player instance is a computer.
+     */
+    boolean isComputer;
+
+    /**
      * Creates an instance of Player.
      * @param name - Name of player.
+     * @param isComputer - Whether player is a computer.
      */
-    public Player(String name) {
-        this.name = name;
+    public Player(String name, boolean isComputer) {
+        this.isComputer = isComputer;
         this.victories = 0;
+
+        if (this.isComputer) {
+            this.name = "Sauron's Finger";
+        } else {
+            this.name = name;
+        }
     }
 }
