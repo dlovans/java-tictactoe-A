@@ -28,9 +28,9 @@ public class TicTacToe {
 
         // Initialize a matrices.
         this.board = new String[][] {
-            {"1", "2", "3"},
-            {"4", "5", "6"},
-            {"7", "8", "9"}};
+            {" ", " ", " "},
+            {" ", " ", " "},
+            {" ", " ", " "}};
     }
 
     /**
@@ -64,17 +64,17 @@ public class TicTacToe {
     public boolean updateSquare(int squareNumber, Player player) {
         boolean result = false;
         if (squareNumber >= 1 && squareNumber <=3) {
-            if (this.board[0][squareNumber].equals(String.valueOf(squareNumber))) {
+            if (this.board[0][squareNumber].equals(" ")) {
                 this.board[0][squareNumber] = player.getSymbol();
                 result = true;
             }
         } else if (squareNumber >= 4 && squareNumber <=6) {
-            if (this.board[1][squareNumber].equals(String.valueOf(squareNumber))) {
+            if (this.board[1][squareNumber].equals(" ")) {
                 this.board[1][squareNumber] = player.getSymbol();
                 result = true;
             }
         } else if (squareNumber >= 7 && squareNumber <=9) {
-            if (this.board[2][squareNumber].equals(String.valueOf(squareNumber))) {
+            if (this.board[2][squareNumber].equals(" ")) {
                 this.board[2][squareNumber] = player.getSymbol();
                 result = true;
             }
