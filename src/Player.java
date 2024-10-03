@@ -33,5 +33,10 @@ public class Player {
         }
     }
 
-
+    /**
+     * Increments number of victories by one.
+     */
+    public void incrementVictories() {
+        this.victories++;
+    }
 }
