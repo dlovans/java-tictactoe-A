@@ -54,4 +54,31 @@ public class TicTacToe {
             System.out.println(" |");
         }
     }
+
+    /**
+     * Updates a square to the value of X or O if the square is unoccupied.
+     * @param squareNumber - The square number that the player entered.
+     * @param player - The player playing its turn.
+     * @return - Whether the square was successfully updated or not.
+     */
+    public boolean updateSquare(int squareNumber, Player player) {
+        boolean result = false;
+        if (squareNumber >= 1 && squareNumber <=3) {
+            if (this.board[0][squareNumber].equals(String.valueOf(squareNumber))) {
+                this.board[0][squareNumber] = player.getSymbol();
+                result = true;
+            }
+        } else if (squareNumber >= 4 && squareNumber <=6) {
+            if (this.board[1][squareNumber].equals(String.valueOf(squareNumber))) {
+                this.board[1][squareNumber] = player.getSymbol();
+                result = true;
+            }
+        } else if (squareNumber >= 7 && squareNumber <=9) {
+            if (this.board[2][squareNumber].equals(String.valueOf(squareNumber))) {
+                this.board[2][squareNumber] = player.getSymbol();
+                result = true;
+            }
+        }
+        return result;
+    }
 }
