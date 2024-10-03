@@ -10,12 +10,12 @@ public class Player {
     /**
      * Number of victories.
      */
-    int victories;
+    private int victories;
 
     /**
      * Whether Player instance is a computer.
      */
-    boolean isComputer;
+    final private boolean isComputer;
 
     /**
      * Creates an instance of Player.
@@ -32,4 +32,6 @@ public class Player {
             this.name = name;
         }
     }
+
+
 }
