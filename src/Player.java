@@ -17,6 +17,8 @@ public class Player {
      */
     final private boolean isComputer;
 
+    private String symbol;
+
     /**
      * Creates an instance of Player.
      * @param name - Name of player.
@@ -25,6 +27,7 @@ public class Player {
     public Player(String name, boolean isComputer) {
         this.isComputer = isComputer;
         this.victories = 0;
+        this.symbol = "";
 
         if (this.isComputer) {
             this.name = "Sauron's Finger";
@@ -54,5 +57,21 @@ public class Player {
      */
     public String getName() {
         return this.name;
+    }
+
+    /**
+     * Returns player TicTacToe symbol.
+     * @return - Symbol.
+     */
+    public String getSymbol() {
+        return symbol;
+    }
+
+    /**
+     * Sets player TicTacToe symbol.
+     * @param symbol - Symbol.
+     */
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }
