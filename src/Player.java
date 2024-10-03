@@ -39,4 +39,12 @@ public class Player {
     public void incrementVictories() {
         this.victories++;
     }
+
+    /**
+     * Returns number of victories.
+     * @return - Number of victories.
+     */
+    public int getVictories() {
+        return this.victories;
+    }
 }
