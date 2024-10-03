@@ -22,5 +22,11 @@ public class TicTacToe {
         this.playerTwo = playerTwo;
     }
 
-
+    /**
+     * Assigns TicTacToe symbols for players.
+     */
+    public void assignSymbol() {
+        this.playerOne.setSymbol("X");
+        this.playerTwo.setSymbol("O");
+    }
 }
