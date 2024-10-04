@@ -5,6 +5,11 @@ import java.util.Scanner;
  */
 public class GameManager {
     /**
+     * TicTacToe object.
+     */
+    private TicTacToe ticTacToe;
+
+    /**
      * Player one.
      */
     private Player playerOne;
@@ -13,6 +18,12 @@ public class GameManager {
      * Player two.
      */
     private Player playerTwo;
+
+    private boolean playerOneTurn = true;
+
+    public GameManager() {
+        this.ticTacToe = new TicTacToe();
+    }
 
     /**
      * Reads input from standard output.
@@ -84,6 +95,47 @@ public class GameManager {
                 break;
             } else {
                 System.out.println("Enter a valid option!");
+            }
+        }
+    }
+
+    /**
+     * Asks user to make a move. Evaluates board after each turn.
+     * @param player - Player making a move.
+     */
+    private boolean playerMakesMove(Player player) {
+        int squareNumber;
+        System.out.println(player.getSymbol() + ". " + player.getName() + " with " + " turn. Select square between 1-9: ");
+        while (true) {
+            if (scanner.hasNextInt()) {
+                squareNumber = scanner.nextInt();
+                if (squareNumber < 1 || squareNumber > 9) {
+                    System.out.println("Enter a valid number between 1-9!");
+                    continue;
+                } else {
+                    if (this.ticTacToe.updateSquare(squareNumber, player)) {
+                        System.out.println("Square updated!");
+                        ticTacToe.printBoard();
+                        if (this.ticTacToe.isWinner(player)) {
+                            System.out.println(player.getName() + " wins!");
+                            player.incrementVictories();
+                            System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
+                            ticTacToe.resetBoard();
+                            break;
+                        } else {
+                            if (this.ticTacToe.isDraw()) {
+                                System.out.println("It's a draw.");
+                                break;
+                            } else {
+                                System.out.println("Square number " + squareNumber + " already occupied.");
+                                continue;
+                            }
+                        }
+                    }
+                    break;
+                }
+            } else {
+                System.out.println("Enter a digit between 1-9!");
             }
         }
     }
