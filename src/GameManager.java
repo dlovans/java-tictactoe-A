@@ -77,6 +77,7 @@ public class GameManager {
                     continue;
                 }
                 this.playerTwo = new Player(name, isComputer, "O");
+                break;
             } else {
                 System.out.println("Enter a valid option!");
             }
