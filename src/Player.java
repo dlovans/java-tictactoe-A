@@ -64,11 +64,4 @@ public class Player {
         return symbol;
     }
 
-    /**
-     * Sets player TicTacToe symbol.
-     * @param symbol - Symbol.
-     */
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
 }
