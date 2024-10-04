@@ -111,8 +111,8 @@ public class TicTacToe {
      * @return - Whether it is a draw or not.
      */
     public boolean isDraw() {
-        for (int i = 0; i < this.board.length; i++) {
-            if (this.board[i].equals(" ")) {
+        for (String s : this.board) {
+            if (s.equals(" ")) {
                 return true;
             }
         }
