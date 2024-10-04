@@ -118,4 +118,11 @@ public class TicTacToe {
         }
         return false;
     }
+
+    /**
+     * Resets the board.
+     */
+    public void resetBoard() {
+        Arrays.fill(this.board, " ");
+    }
 }
