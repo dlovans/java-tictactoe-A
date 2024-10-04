@@ -103,7 +103,7 @@ public class GameManager {
      * Asks user to make a move. Evaluates board after each turn.
      * @param player - Player making a move.
      */
-    private boolean playerMakesMove(Player player) {
+    private void playerMakesMove(Player player) {
         int squareNumber;
         System.out.println(player.getSymbol() + ". " + player.getName() + " with " + " turn. Select square between 1-9: ");
         while (true) {
