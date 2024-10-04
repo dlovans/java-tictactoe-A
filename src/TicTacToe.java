@@ -19,14 +19,6 @@ public class TicTacToe {
     }
 
     /**
-     * Assigns TicTacToe symbols for players.
-     */
-    public void assignSymbol() {
-        this.playerOne.setSymbol("X");
-        this.playerTwo.setSymbol("O");
-    }
-
-    /**
      * Prints the TicTacToe board to the standard output.
      */
     public void printBoard() {
@@ -46,19 +38,20 @@ public class TicTacToe {
      */
     public boolean updateSquare(int squareNumber, Player player) {
         boolean result = false;
+        int squareNumberToIndex = squareNumber--;
         if (squareNumber >= 1 && squareNumber <=3) {
-            if (this.board[squareNumber].equals(" ")) {
-                this.board[squareNumber] = player.getSymbol();
+            if (this.board[squareNumberToIndex].equals(" ")) {
+                this.board[squareNumberToIndex] = player.getSymbol();
                 result = true;
             }
         } else if (squareNumber >= 4 && squareNumber <=6) {
-            if (this.board[squareNumber].equals(" ")) {
-                this.board[squareNumber] = player.getSymbol();
+            if (this.board[squareNumberToIndex].equals(" ")) {
+                this.board[squareNumberToIndex] = player.getSymbol();
                 result = true;
             }
         } else if (squareNumber >= 7 && squareNumber <=9) {
-            if (this.board[squareNumber].equals(" ")) {
-                this.board[squareNumber] = player.getSymbol();
+            if (this.board[squareNumberToIndex].equals(" ")) {
+                this.board[squareNumberToIndex] = player.getSymbol();
                 result = true;
             }
         }
@@ -98,10 +91,10 @@ public class TicTacToe {
     public boolean isDraw() {
         for (String s : this.board) {
             if (s.equals(" ")) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /**
