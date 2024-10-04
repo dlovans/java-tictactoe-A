@@ -5,29 +5,14 @@ import java.util.Arrays;
  */
 public class TicTacToe {
     /**
-     * Player one.
-     */
-    final private Player playerOne;
-
-    /**
-     * Player two.
-     */
-    final private Player playerTwo;
-
-    /**
      *
      */
     final private String[] board;
 
     /**
      * Creates an instance of TicTacToe.
-     * @param playerOne - Player one.
-     * @param playerTwo - Player two.
      */
-    public TicTacToe(Player playerOne, Player playerTwo) {
-        this.playerOne = playerOne;
-        this.playerTwo = playerTwo;
-
+    public TicTacToe() {
         // TicTacToe board.
         this.board = new String[9];
         Arrays.fill(this.board, " ");
