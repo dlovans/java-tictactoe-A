@@ -80,9 +80,13 @@ public class TicTacToe {
         return result;
     }
 
-    public boolean evaluateMatch(Player player) {
-        boolean gameOver = false;
-        int[][] threeInRowIndices = new int[][] {
+    /**
+     * Evaluates board. Returns whether player is a winner.
+     * @param player - TicTacToe player.
+     * @return - Whether player has won or not.
+     */
+    public boolean isWinner(Player player) {
+        int[][] threeInRow = new int[][] {
                 {0, 1, 2},
                 {3, 4, 5},
                 {6, 7, 8},
@@ -94,7 +98,11 @@ public class TicTacToe {
         };
         String symbol = player.getSymbol();
 
-        for (int i = 0; i < threeInRowIndices.length; i++) {
+        for (int i = 0; i < threeInRow.length; i++) {
+            if (this.board[threeInRow[i][0]].equals(symbol) && this.board[threeInRow[i][1]].equals(symbol) && this.board[threeInRow[i][2]].equals(symbol)) {
+                return true;
+            }
         }
+        return false;
     }
 }
