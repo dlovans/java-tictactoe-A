@@ -28,6 +28,10 @@ public class GameManager {
         this.createPlayers();
     }
 
+    /**
+     * Creates players. Asks user for names and if
+     * opponent is a computer.
+     */
     private void createPlayers() {
         String name;
 
