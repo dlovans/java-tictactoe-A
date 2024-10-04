@@ -105,4 +105,17 @@ public class TicTacToe {
         }
         return false;
     }
+
+    /**
+     * Checks if it's a draw.
+     * @return - Whether it is a draw or not.
+     */
+    public boolean isDraw() {
+        for (int i = 0; i < this.board.length; i++) {
+            if (this.board[i].equals(" ")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
