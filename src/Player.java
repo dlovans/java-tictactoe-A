@@ -16,6 +16,8 @@ public class Player {
      * Whether Player instance is a computer.
      */
     final private boolean isComputer;
+    // TODO: Add functionality if player is computer.
+
 
     private String symbol;
 
@@ -24,16 +26,11 @@ public class Player {
      * @param name - Name of player.
      * @param isComputer - Whether player is a computer.
      */
-    public Player(String name, boolean isComputer) {
+    public Player(String name, boolean isComputer, String symbol) {
         this.isComputer = isComputer;
         this.victories = 0;
-        this.symbol = "";
-
-        if (this.isComputer) {
-            this.name = "Sauron's Finger";
-        } else {
-            this.name = name;
-        }
+        this.symbol = symbol;
+        this.name = name;
     }
 
     /**
