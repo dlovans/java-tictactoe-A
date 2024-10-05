@@ -76,6 +76,7 @@ public class GameManager {
             if (scanner.hasNextLine()) {
                 name = scanner.nextLine();
                 if (!name.isEmpty()) {
+                    this.quitProgram(name);
                     this.playerOne = new Player(name, false, "X");
                     break;
                 } else {
@@ -92,6 +93,7 @@ public class GameManager {
             if (scanner.hasNextLine()) {
                 name = scanner.nextLine();
                 if (!name.isEmpty()) {
+                    this.quitProgram(name);
                     break;
                 } else {
                     System.out.println("Enter a valid name!");
@@ -100,13 +102,18 @@ public class GameManager {
         }
 
         // Ask user if player two is a computer.
+        String isComputerResponse;
         System.out.println("Do you want to play against a computer? Y/n");
         while (true) {
             boolean isComputer;
             if (scanner.hasNextLine()) {
-                if (scanner.nextLine().equalsIgnoreCase("y")) {
+                isComputerResponse = scanner.nextLine();
+
+                this.quitProgram(isComputerResponse);
+
+                if (isComputerResponse.equalsIgnoreCase("y")) {
                     isComputer = true;
-                } else if (scanner.nextLine().equalsIgnoreCase("n")) {
+                } else if (isComputerResponse.equalsIgnoreCase("n")) {
                     isComputer = false;
                 } else {
                     System.out.println("Enter `Y` for yes and `n` for no.");
@@ -127,11 +134,26 @@ public class GameManager {
      */
     private void playerMakesMove(Player player) {
         int squareNumber;
+        String userInput;
         System.out.println(player.getSymbol() + ". " + player.getName() + " with " + " turn. Select square between 1-9: ");
+
         while (true) {
-            // Check if user entered an integer within valid interval.
-            if (scanner.hasNextInt()) {
-                squareNumber = scanner.nextInt();
+            // Check if user wants to quit program.
+            if (scanner.hasNextLine()) {
+                userInput = scanner.nextLine();
+                if (!userInput.isEmpty()) {
+                    this.quitProgram(userInput);
+                    try {
+                        squareNumber = Integer.parseInt(userInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Enter a valid number!");
+                        continue;
+                    }
+                } else {
+                    break;
+                }
+
+                // Check if user entered an integer within valid interval.
                 if (squareNumber < 1 || squareNumber > 9) {
                     System.out.println("Enter a valid number between 1-9!");
                     continue;
@@ -210,6 +232,7 @@ public class GameManager {
         if (quit.equalsIgnoreCase(":quit")) {
             this.continueProgram = false;
             System.out.println("Exiting program.");
+            System.exit(0);
         }
     }
 }
