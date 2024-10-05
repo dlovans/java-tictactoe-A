@@ -164,6 +164,8 @@ public class GameManager {
                         playerOneTurn = !playerOneTurn;
                         System.out.println("Square updated!");
                         ticTacToe.printBoard();
+
+                        // Checks if player is a winner after making a move.
                         if (this.ticTacToe.isWinner(player)) {
                             playerOneTurn = true;
                             System.out.println(player.getName() + " wins!");
@@ -172,6 +174,8 @@ public class GameManager {
                             ticTacToe.resetBoard();
                             break;
                         } else {
+
+                            // Checks if it's a draw after each move.
                             if (this.ticTacToe.isDraw()) {
                                 playerOneTurn = true;
                                 System.out.println("It's a draw.");
@@ -180,6 +184,7 @@ public class GameManager {
                             }
                         }
                     } else {
+                        // If user enters an integer already occupied in the board.
                         System.out.println("Square number " + squareNumber + " already occupied.");
                         System.out.println("Enter another square number between 1-9: ");
                         continue;
@@ -201,11 +206,14 @@ public class GameManager {
 
         System.out.println(player.getSymbol() + ". " + player.getName() + " makes a move.");
         while (true) {
+            // Makes sure random integer isn't occupied.
             squareNumber = (int) (Math.random() * 9) + 1;
             if (this.ticTacToe.updateSquare(squareNumber, player)) {
                 playerOneTurn = !playerOneTurn;
                 System.out.println("Square updated!");
                 ticTacToe.printBoard();
+
+                // Checks if computer is a winner.
                 if (this.ticTacToe.isWinner(player)) {
                     playerOneTurn = true;
                     System.out.println(player.getName() + " wins!");
@@ -213,6 +221,8 @@ public class GameManager {
                     System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
                     ticTacToe.resetBoard();
                     break;
+
+                    // Checks if it's a draw after computer makes a move.
                 } else if (this.ticTacToe.isDraw()) {
                     playerOneTurn = true;
                     System.out.println("It's a draw.");
