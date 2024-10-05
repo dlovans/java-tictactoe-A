@@ -107,12 +107,14 @@ public class GameManager {
         int squareNumber;
         System.out.println(player.getSymbol() + ". " + player.getName() + " with " + " turn. Select square between 1-9: ");
         while (true) {
+            // Check if user entered an integer within valid interval.
             if (scanner.hasNextInt()) {
                 squareNumber = scanner.nextInt();
                 if (squareNumber < 1 || squareNumber > 9) {
                     System.out.println("Enter a valid number between 1-9!");
                     continue;
                 } else {
+                    // Update board, then check if player has won, or if it's a draw.
                     if (this.ticTacToe.updateSquare(squareNumber, player)) {
                         System.out.println("Square updated!");
                         ticTacToe.printBoard();
@@ -124,10 +126,12 @@ public class GameManager {
                             break;
                         } else {
                             if (this.ticTacToe.isDraw()) {
+                                ticTacToe.resetBoard();
                                 System.out.println("It's a draw.");
                                 break;
                             } else {
                                 System.out.println("Square number " + squareNumber + " already occupied.");
+                                System.out.println("Enter another square number between 1-9: ");
                                 continue;
                             }
                         }
