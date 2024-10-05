@@ -64,4 +64,12 @@ public class Player {
         return symbol;
     }
 
+    /**
+     * Returns whether player instance is a computer.
+     * @return - Whether player is a computer.
+     */
+    public boolean isComputer() {
+        return isComputer;
+    }
+
 }
