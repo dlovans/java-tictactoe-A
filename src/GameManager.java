@@ -37,6 +37,7 @@ public class GameManager {
         System.out.println("TicTacToe Game");
         System.out.println("--------------------------");
         this.createPlayers();
+
     }
 
     /**
@@ -140,6 +141,34 @@ public class GameManager {
                 }
             } else {
                 System.out.println("Enter a digit between 1-9!");
+            }
+        }
+    }
+
+    /**
+     * Computer makes a move. Evaluates board after each move.
+     * @param player - Computer player.
+     */
+    private void computerMakesMove(Player player) {
+        int squareNumber;
+        while (true) {
+            squareNumber = (int) (Math.random() * 9) + 1;
+            if (this.ticTacToe.updateSquare(squareNumber, player)) {
+                System.out.println("Square updated!");
+                ticTacToe.printBoard();
+                if (this.ticTacToe.isWinner(player)) {
+                    System.out.println(player.getName() + " wins!");
+                    player.incrementVictories();
+                    System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
+                    ticTacToe.resetBoard();
+                    break;
+                } else if (this.ticTacToe.isDraw()) {
+                    ticTacToe.resetBoard();
+                    System.out.println("It's a draw.");
+                    break;
+                } else { break; }
+            } else {
+                continue;
             }
         }
     }
