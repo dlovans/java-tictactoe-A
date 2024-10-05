@@ -16,7 +16,6 @@ public class Player {
      * Whether Player instance is a computer.
      */
     final private boolean isComputer;
-    // TODO: Add functionality if player is computer.
 
     /**
      * A player's TicTacToe symbol.

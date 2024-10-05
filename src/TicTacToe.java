@@ -108,5 +108,6 @@ public class TicTacToe {
     protected void resetBoard() {
         Arrays.fill(this.board, " ");
         System.out.println("Restarting game!");
+        System.out.println();
     }
 }

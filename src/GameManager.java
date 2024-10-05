@@ -134,7 +134,7 @@ public class GameManager {
     private void playerMakesMove(Player player) {
         int squareNumber;
         String userInput;
-        System.out.println(player.getSymbol() + ". " + player.getName() + " with " + " turn. Select square between 1-9: ");
+        System.out.println(player.getName() + "'s turn, with symbol " + player.getSymbol() + ". Select square between 1-9: ");
 
         this.ticTacToe.printBoard();
 
