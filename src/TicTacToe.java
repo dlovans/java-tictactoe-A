@@ -21,8 +21,7 @@ public class TicTacToe {
     /**
      * Prints the TicTacToe board to the standard output.
      */
-    public void printBoard() {
-        System.out.println();
+    protected void printBoard() {
         System.out.println("-------------");
         for (int i = 0; i < this.board.length; i++) {
             System.out.print("|");
@@ -42,7 +41,7 @@ public class TicTacToe {
      * @param player - The player playing its turn.
      * @return - Whether the square was successfully updated or not.
      */
-    public boolean updateSquare(int squareNumber, Player player) {
+    protected boolean updateSquare(int squareNumber, Player player) {
         boolean result = false;
         int squareNumberToIndex = squareNumber - 1;
         if (squareNumber >= 1 && squareNumber <=3) {
@@ -69,7 +68,7 @@ public class TicTacToe {
      * @param player - TicTacToe player.
      * @return - Whether player has won or not.
      */
-    public boolean isWinner(Player player) {
+    protected boolean isWinner(Player player) {
         int[][] threeInRow = new int[][] {
                 {0, 1, 2},
                 {3, 4, 5},
@@ -94,7 +93,7 @@ public class TicTacToe {
      * Checks if it's a draw.
      * @return - Whether it is a draw or not.
      */
-    public boolean isDraw() {
+    protected boolean isDraw() {
         for (String s : this.board) {
             if (s.equals(" ")) {
                 return false;
@@ -106,7 +105,7 @@ public class TicTacToe {
     /**
      * Resets the board.
      */
-    public void resetBoard() {
+    protected void resetBoard() {
         Arrays.fill(this.board, " ");
         System.out.println("Restarting game!");
     }

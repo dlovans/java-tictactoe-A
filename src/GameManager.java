@@ -136,6 +136,8 @@ public class GameManager {
         String userInput;
         System.out.println(player.getSymbol() + ". " + player.getName() + " with " + " turn. Select square between 1-9: ");
 
+        this.ticTacToe.printBoard();
+
         while (true) {
             // Check if user wants to quit program.
             if (scanner.hasNextLine()) {

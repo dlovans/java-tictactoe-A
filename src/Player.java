@@ -18,8 +18,10 @@ public class Player {
     final private boolean isComputer;
     // TODO: Add functionality if player is computer.
 
-
-    private String symbol;
+    /**
+     * A player's TicTacToe symbol.
+     */
+    final private String symbol;
 
     /**
      * Creates an instance of Player.
@@ -36,7 +38,7 @@ public class Player {
     /**
      * Increments number of victories by one.
      */
-    public void incrementVictories() {
+    protected void incrementVictories() {
         this.victories++;
     }
 
@@ -44,7 +46,7 @@ public class Player {
      * Returns number of victories.
      * @return - Number of victories.
      */
-    public int getVictories() {
+    protected int getVictories() {
         return this.victories;
     }
 
@@ -52,7 +54,7 @@ public class Player {
      * Returns player name.
      * @return - Player name.
      */
-    public String getName() {
+    protected String getName() {
         return this.name;
     }
 
@@ -60,7 +62,7 @@ public class Player {
      * Returns player TicTacToe symbol.
      * @return - Symbol.
      */
-    public String getSymbol() {
+    protected String getSymbol() {
         return symbol;
     }
 
@@ -68,7 +70,7 @@ public class Player {
      * Returns whether player instance is a computer.
      * @return - Whether player is a computer.
      */
-    public boolean isComputer() {
+    protected boolean isComputer() {
         return isComputer;
     }
 
