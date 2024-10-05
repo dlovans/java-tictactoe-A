@@ -168,14 +168,12 @@ public class GameManager {
                             player.incrementVictories();
                             System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
                             ticTacToe.resetBoard();
-                            System.out.println("Restarting game!");
                             break;
                         } else {
                             if (this.ticTacToe.isDraw()) {
                                 playerOneTurn = true;
-                                ticTacToe.resetBoard();
                                 System.out.println("It's a draw.");
-                                System.out.println("Restarting game!");
+                                ticTacToe.resetBoard();
                                 break;
                             }
                         }
@@ -215,8 +213,8 @@ public class GameManager {
                     break;
                 } else if (this.ticTacToe.isDraw()) {
                     playerOneTurn = true;
-                    ticTacToe.resetBoard();
                     System.out.println("It's a draw.");
+                    ticTacToe.resetBoard();
                     break;
                 } else { break; }
             }
