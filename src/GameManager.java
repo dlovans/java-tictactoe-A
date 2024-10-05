@@ -7,7 +7,7 @@ public class GameManager {
     /**
      * TicTacToe object.
      */
-    private TicTacToe ticTacToe;
+    final private TicTacToe ticTacToe;
 
     /**
      * Player one.
@@ -81,7 +81,6 @@ public class GameManager {
                     break;
                 } else {
                     System.out.println("Enter a valid name!");
-                    continue;
                 }
             }
         }
@@ -169,19 +168,21 @@ public class GameManager {
                             player.incrementVictories();
                             System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
                             ticTacToe.resetBoard();
+                            System.out.println("Restarting game!");
                             break;
                         } else {
                             if (this.ticTacToe.isDraw()) {
                                 playerOneTurn = true;
                                 ticTacToe.resetBoard();
                                 System.out.println("It's a draw.");
+                                System.out.println("Restarting game!");
                                 break;
-                            } else {
-                                System.out.println("Square number " + squareNumber + " already occupied.");
-                                System.out.println("Enter another square number between 1-9: ");
-                                continue;
                             }
                         }
+                    } else {
+                        System.out.println("Square number " + squareNumber + " already occupied.");
+                        System.out.println("Enter another square number between 1-9: ");
+                        continue;
                     }
                     break;
                 }
@@ -218,8 +219,6 @@ public class GameManager {
                     System.out.println("It's a draw.");
                     break;
                 } else { break; }
-            } else {
-                continue;
             }
         }
     }

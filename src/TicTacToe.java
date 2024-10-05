@@ -38,7 +38,7 @@ public class TicTacToe {
      */
     public boolean updateSquare(int squareNumber, Player player) {
         boolean result = false;
-        int squareNumberToIndex = squareNumber--;
+        int squareNumberToIndex = squareNumber - 1;
         if (squareNumber >= 1 && squareNumber <=3) {
             if (this.board[squareNumberToIndex].equals(" ")) {
                 this.board[squareNumberToIndex] = player.getSymbol();
