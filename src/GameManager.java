@@ -117,9 +117,11 @@ public class GameManager {
                 } else {
                     // Update board, then check if player has won, or if it's a draw.
                     if (this.ticTacToe.updateSquare(squareNumber, player)) {
+                        playerOneTurn = !playerOneTurn;
                         System.out.println("Square updated!");
                         ticTacToe.printBoard();
                         if (this.ticTacToe.isWinner(player)) {
+                            playerOneTurn = true;
                             System.out.println(player.getName() + " wins!");
                             player.incrementVictories();
                             System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
@@ -127,6 +129,7 @@ public class GameManager {
                             break;
                         } else {
                             if (this.ticTacToe.isDraw()) {
+                                playerOneTurn = true;
                                 ticTacToe.resetBoard();
                                 System.out.println("It's a draw.");
                                 break;
@@ -151,18 +154,23 @@ public class GameManager {
      */
     private void computerMakesMove(Player player) {
         int squareNumber;
+
+        System.out.println(player.getSymbol() + ". " + player.getName() + " makes a move.");
         while (true) {
             squareNumber = (int) (Math.random() * 9) + 1;
             if (this.ticTacToe.updateSquare(squareNumber, player)) {
+                playerOneTurn = !playerOneTurn;
                 System.out.println("Square updated!");
                 ticTacToe.printBoard();
                 if (this.ticTacToe.isWinner(player)) {
+                    playerOneTurn = true;
                     System.out.println(player.getName() + " wins!");
                     player.incrementVictories();
                     System.out.println(player.getName() + " has " + player.getVictories() + " win(s).");
                     ticTacToe.resetBoard();
                     break;
                 } else if (this.ticTacToe.isDraw()) {
+                    playerOneTurn = true;
                     ticTacToe.resetBoard();
                     System.out.println("It's a draw.");
                     break;
