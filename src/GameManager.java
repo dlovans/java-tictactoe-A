@@ -201,4 +201,15 @@ public class GameManager {
             }
         }
     }
+
+    /**
+     * Quits the program.
+     * @param quit - User input.
+     */
+    private void quitProgram(String quit) {
+        if (quit.equalsIgnoreCase(":quit")) {
+            this.continueProgram = false;
+            System.out.println("Exiting program.");
+        }
+    }
 }
