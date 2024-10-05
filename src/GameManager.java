@@ -19,7 +19,15 @@ public class GameManager {
      */
     private Player playerTwo;
 
+    /**
+     * Indicates if it's player one's turn.
+     */
     private boolean playerOneTurn = true;
+
+    /**
+     * Indicates if program should continue.
+     */
+    private boolean continueProgram = true;
 
     public GameManager() {
         this.ticTacToe = new TicTacToe();
@@ -37,6 +45,19 @@ public class GameManager {
         System.out.println("TicTacToe Game");
         System.out.println("--------------------------");
         this.createPlayers();
+
+        // The game.
+        while (continueProgram) {
+            if (playerOneTurn) {
+                this.playerMakesMove(this.playerOne);
+            } else {
+                if (this.playerTwo.isComputer()) {
+                    this.computerMakesMove(this.playerTwo);
+                } else {
+                    this.playerMakesMove(this.playerTwo);
+                }
+            }
+        }
 
     }
 
