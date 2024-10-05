@@ -22,12 +22,18 @@ public class TicTacToe {
      * Prints the TicTacToe board to the standard output.
      */
     public void printBoard() {
-        System.out.println("|---|---|");
-        for (String s : this.board) {
+        System.out.println();
+        System.out.println("-------------");
+        for (int i = 0; i < this.board.length; i++) {
             System.out.print("|");
-            System.out.print(s);
-            System.out.println(" |");
+            System.out.print(" " + this.board[i] + " ");
+            if (i == 2 || i == 5 || i == 8) {
+                System.out.print("|");
+                System.out.println();
+            }
         }
+        System.out.println("-------------");
+        System.out.println();
     }
 
     /**
@@ -102,5 +108,6 @@ public class TicTacToe {
      */
     public void resetBoard() {
         Arrays.fill(this.board, " ");
+        System.out.println("Restarting game!");
     }
 }
