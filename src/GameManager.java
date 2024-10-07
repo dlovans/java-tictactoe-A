@@ -43,6 +43,7 @@ public class GameManager {
      */
     public void run() {
         System.out.println("TicTacToe Game");
+        System.out.println("Type `:quit` at any time to quit the program!");
         System.out.println("--------------------------");
         this.createPlayers();
 
